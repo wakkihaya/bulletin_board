@@ -1,62 +1,34 @@
 <?php
 
-require_once 'DbManager.php';
-require_once 'test.php';
+//require_once 'DbManager.php';
+//require_once 'test.php';
+//$dsn = 'mysql:dbname=board_db; host =127.0.0.1;charset =utf8';
+try {
+    $dsn = 'mysql:dbname=board_db; host =localhost;charset =utf8';
+    $usr = 'root';
+    $passwd = 'haya0226';
 
-    $db = getDb();
+
+    $db = new PDO($dsn, $usr, $passwd);
+}catch (PDOException $e){
+    exit($e->getMessage());
+}
 
   //データベースの登録
     if(isset($_POST['submit'])){//送信ボタン押されたら、
-        $name=$_POST['name'];
+
         $message=$_POST['message'];
-        $sql = "INSERT INTO book(name, message) VALUES('$name','$message')";
+        $sql = "INSERT INTO data(message) VALUES('$message')";//idについてはauto increment
         $res = $db->query($sql);
 
         //皆の本音画面にリダイレクト
 
        // header("Location: " .$_SERVER['PHP_SELF'],true,303);
-       // header("Location: http://localhost/bulletin/test2.php");
+        header("Location: http://localhost/bulletin/test2.php");
     }
 
 
 
-//
-//
-//$LOG_FILE_NAME = "log.txt";
-//$name = "";
-//$message = "";
-//
-//if(isset($_POST['name'])){
-//    $name= $_POST['name'];
-//
-//    if($name ==""){
-//        $name = "noname";
-//    }
-//}
-//
-//if(isset($_POST['message'])){
-//    $message = $_POST['message'];
-//
-////ファイルを開く
-//    $fp = fopen($LOG_FILE_NAME,"a") or exit($LOG_FILE_NAME."が開けません");
-//
-////|を区切りにして2つのデータを繋げて書き込む
-////fwrite($fp,$name."|".$message."\n");
-//    fwrite($fp,$message."\n");
-//
-////フォームの再送信のエラーが出ないように、データ送信後にPOSTデータを送信する前の元のページに
-////ジャンプさせる（リダイレクト）
-//    header("Location:" .$_SERVER['PHP_SELF'],true,303);
-//}
-//
-//if(!file_exists($LOG_FILE_NAME)){//ファイルがあるかを確認
-//    echo "書き込みはありません";
-//    $linesnum=0;
-//}else{
-//
-//    $lines = file($LOG_FILE_NAME);
-//    $linesnum = count($lines);
-//}
 ?>
 
 <!--test.php送信後、test2.phpに移るのだが、それがtest.phpの内容になっている-->
@@ -87,20 +59,11 @@ require_once 'test.php';
         <ul class="board">
     <?php
     //テーブル内容の表示
-    $sql = "SELECT *FROM book ORDER BY id DESC";
+    $sql = "SELECT *FROM data ORDER by id DESC ";
     $stmt = $db->query($sql);
     foreach ($stmt as $row){
     $message1 = $row['message'];//メッセージの値をゲット
 
-
-//    for($i = $linesnum-1 ; $i>=0;$i--){
-//    $array = explode ("|" , $lines[$i]);
-//    $name = htmlspecialchars( $array[0]);
-//
-//    $message = htmlspecialchars($lines[$i]);
-
-//    echo '<p>'.$name."「".$message.'」</p>';
-    //echo '<li>'.$message.'</li>';
 
         ?>
         <li class="contents"><p><?php echo $message1 ?></p>
