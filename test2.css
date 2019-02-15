@@ -115,7 +115,7 @@ body,html{
     padding:auto;
     margin:auto;
     text-align:center;
-    height:10vh;
+    height:7vh;
 
 }
 
@@ -125,6 +125,29 @@ body,html{
 
 .modal-p:first-child{
     margin-top:0;
+}
+
+#tweet{
+    position:absolute;
+    bottom:7vh;
+    right:0;
+    left:0;
+    height:7vh;
+    width:100%;
+    background-color:#44f;
+    color:#fff;
+    text-align:center;
+}
+
+#tweet a{
+    display:block;
+    text-decoration: none;
+    color:#fff;
+    font-size:5vh;
+    text-align:center;
+    font-family: "Yu Gothic UI";
+    font-weight: bold;
+    width:100%;
 }
 
 

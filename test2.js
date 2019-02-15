@@ -49,7 +49,22 @@ $(document).ready(function () {
 
             $("#modal-content").fadeIn("slow");
 
+            //tweet
+            var tweet = document.getElementById("tweet");
+            var base_url = 'https://twitter.com/intent/tweet';
+            var text =document.getElementById("extension").innerHTML;
+            var hashtag = 'たっchannel';
+
+            var tweetLink = '<a href="' + base_url +
+                '?text=' + value +
+                '&hashtags='+
+                hashtag + '">ツイート</a>';
+
+            tweet.innerHTML =tweetLink;
+
         });
+
+
 
 
     //センタリングする関数
@@ -76,7 +91,6 @@ $(document).ready(function () {
         });
         
     });
-    
-    
+
 
 });

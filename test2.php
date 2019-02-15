@@ -3,9 +3,10 @@
 //require_once 'DbManager.php';
 //require_once 'test.php';
 //$dsn = 'mysql:dbname=board_db; host =127.0.0.1;charset =utf8';
+//$usr = 'root';
 try {
-    $dsn = 'mysql:dbname=board_db; host =localhost;charset =utf8';
-    $usr = 'root';
+    $dsn = 'mysql:host=mysql1.php.starfree.ne.jp;dbname=wakkihaya_board; charset =utf8';
+    $usr = 'wakkihaya_hayato';
     $passwd = 'haya0226';
 
 
@@ -24,7 +25,7 @@ try {
         //皆の本音画面にリダイレクト
 
        // header("Location: " .$_SERVER['PHP_SELF'],true,303);
-        header("Location: http://localhost/bulletin/test2.php");
+        header("Location: http://wakkihaya.starfree.jp/test2.php");
     }
 
 
@@ -38,10 +39,10 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>bulletin board</title>
-    <link rel="stylesheet" href="test2.css?<-jd3ddddsdd>">
+    <link rel="stylesheet" href="test2.css?<dadda>">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 
-    <script type="text/javascript" src="test2.js?dsd"></script>
+    <script type="text/javascript" src="test2.js?dads"></script>
 </head>
 <body>
 
@@ -71,7 +72,13 @@ try {
 
         <div id="modal-content">
             <p id="extension"></p>
-            <p><a id="modal-close" class="button-link">閉じる</a> </p>
+            <div id="tweet">a
+                <!--                <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>-->
+                <!--            <a href="http://twitter.com/intent/tweet?text=あ&hashtags=たっchannel>ツイート</a>-->
+            </div>
+            <p><a id="modal-close" class="button-link">閉じる</a>
+            </p>
+
         </div>
     <?php
             }

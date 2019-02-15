@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>1行メッセージ</title>
-    <link rel="stylesheet" href="test.css?<dssdddsadsd>" type="text/css">
+    <link rel="stylesheet" href="test.css?<dssdddsasd>" type="text/css">
 <!--    hrefの名前を変えると読み込んでくれやすい-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 
